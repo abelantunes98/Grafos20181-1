@@ -40,6 +40,22 @@ public class MatrizIncidencia {
 		return grafoSimples;
 	}
 
+	private static void insereVertices(String[][] matriz) {
+		int i = 1, j = 0;
+		for (String vertice : grafo.vertexSet()) {
+			matriz[i++][j] = vertice;
+		}
+	}
+
+	private static void insereArestas(String[][] matriz) {
+		i = 0; j = 1;
+		for (DefaultEdge aresta : grafo.edgeSet()) {
+			String cauda = grafo.getEdgeSource(aresta);
+			String cabeca = grafo.getEdgeTarget(aresta);
+			matriz[i][j++] = cauda + cabeca;
+		}
+	}
+
 	/**
 	 * Método que define a quantidade de vértices e arestas, usa-os para criar a
 	 * matriz e, depois de ter sido criada, são usados dois fors para verificar se
@@ -72,22 +88,6 @@ public class MatrizIncidencia {
 			i++;
 		}
 		return matriz;
-	}
-
-	private static void insereVertices(String[][] matriz) {
-		int i = 1, j = 0;
-		for (String vertice : grafo.vertexSet()) {
-			matriz[i++][j] = vertice;
-		}
-	}
-
-	private static void insereArestas(String[][] matriz) {
-		i = 0; j = 1;
-		for (DefaultEdge aresta : grafo.edgeSet()) {
-			String cauda = grafo.getEdgeSource(aresta);
-			String cabeca = grafo.getEdgeTarget(aresta);
-			matriz[i][j++] = cauda + cabeca;
-		}
 	}
 
 	private static void Resposta(String[][] matriz) {
