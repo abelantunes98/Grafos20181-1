@@ -6,14 +6,14 @@ import org.jgrapht.graph.SimpleGraph;
 
 /**
  * Representação de uma matriz de incidência.
- * 
+ *
  * @author Abel, Mariana, José Guilherme, Siuanny
  */
 public class MatrizIncidencia {
 
 	/**
 	 * Método construtor do grafo simples, definindo seus vértices e arestas.
-	 * 
+	 *
 	 * @return grafoSimples
 	 */
 	private static Graph<String, DefaultEdge> criaGrafoSimples() {
@@ -44,7 +44,7 @@ public class MatrizIncidencia {
 	 * Método que define a quantidade de vértices e arestas, usa-os para criar a
 	 * matriz e, depois de ter sido criada, são usados dois fors para verificar se
 	 * há arestas entre dois vértices.
-	 * 
+	 *
 	 * @param grafo
 	 * @return matriz
 	 */
@@ -54,18 +54,8 @@ public class MatrizIncidencia {
 
 		String[][] matriz = new String[linhas][colunas];
 		matriz[0][0] = "#";
-
-		int i = 1, j = 0;
-		for (String vertice : grafo.vertexSet()) {
-			matriz[i++][j] = vertice;
-		}
-
-		i = 0; j = 1;
-		for (DefaultEdge aresta : grafo.edgeSet()) {
-			String cauda = grafo.getEdgeSource(aresta);
-			String cabeca = grafo.getEdgeTarget(aresta);
-			matriz[i][j++] = cauda + cabeca;
-		}
+		insereVertices(matriz);
+		insereArestas(matriz);
 
 		i = 1;
 		for (String vertices : grafo.vertexSet()) {
@@ -82,6 +72,22 @@ public class MatrizIncidencia {
 			i++;
 		}
 		return matriz;
+	}
+
+	private static void insereVertices(String[][] matriz) {
+		int i = 1, j = 0;
+		for (String vertice : grafo.vertexSet()) {
+			matriz[i++][j] = vertice;
+		}
+	}
+
+	private static void insereArestas(String[][] matriz) {
+		i = 0; j = 1;
+		for (DefaultEdge aresta : grafo.edgeSet()) {
+			String cauda = grafo.getEdgeSource(aresta);
+			String cabeca = grafo.getEdgeTarget(aresta);
+			matriz[i][j++] = cauda + cabeca;
+		}
 	}
 
 	private static void Resposta(String[][] matriz) {
