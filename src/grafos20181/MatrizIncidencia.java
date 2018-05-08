@@ -89,7 +89,9 @@ public class MatrizIncidencia {
 		}
 		return matriz;
 	}
-	
+	/**
+	 * Imprime a matriz resultante.
+	 */
 	private static void Resposta(String[][] matriz) {
 		System.out.println("Questão 1. Matriz de Incidência:" + System.lineSeparator());
 		for (int i = 0; i < matriz.length; i++) {
@@ -99,7 +101,10 @@ public class MatrizIncidencia {
 			System.out.println();
 		}
 	}
-
+	
+	/**
+	 * Chama os métodos de construção e exibição da matriz resutante.
+	 */
 	public static void main(String[] args) {
 		Graph<String, DefaultEdge> grafo = criaGrafoSimples();
 		String[][] matriz = criaMatriz(grafo);

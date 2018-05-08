@@ -1,8 +1,8 @@
 package grafos20181;
 
 /**
- * Esse é o programa principal. É aqui onde todas as questões serão chamadas
- * para realizar seu trabalho.
+ * Execultará os casos de teste para cada exercício
+ * proposto na disciplina de Teoria dos Grafos.
  */
 public class Execucao {
 

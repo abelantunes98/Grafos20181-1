@@ -6,6 +6,9 @@ import org.jgrapht.alg.cycle.PatonCycleBase;
 import org.jgrapht.graph.DefaultEdge;
 import org.jgrapht.graph.SimpleGraph;
 
+/**
+ * Constroi e retorna um grafo à partir dos dados passados.
+ */
 public class EhBipartido {
 	
 	private static Graph<String, DefaultEdge> teste1() {
