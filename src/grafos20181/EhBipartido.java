@@ -7,31 +7,7 @@ import org.jgrapht.graph.DefaultEdge;
 import org.jgrapht.graph.SimpleGraph;
 
 public class EhBipartido {
-
-	public static void main(String[] args)  {
-		Graph<String, DefaultEdge> grafo1 = teste1();
-		Graph<String, DefaultEdge> grafo2 = teste2();
-		Respostas(grafo1, grafo2);
-	}
 	
-	private static void Respostas(Graph<String, DefaultEdge> grafo1, Graph<String, DefaultEdge> grafo2) {
-		System.out.println("Questão 3. Analisa se é bipartido:" + System.lineSeparator());
-		System.out.println("Grafo 1 - " + analisaSeEhBipartido(grafo1));
-		System.out.println("Grafo 2 - " + analisaSeEhBipartido(grafo2));
-	}
-
-	private static String analisaSeEhBipartido(Graph<String, DefaultEdge> grafo) {
-		PatonCycleBase<String, DefaultEdge> base = new PatonCycleBase<String, DefaultEdge>(grafo);
-		List<List<String>> circulos = base.findCycleBase();
-
-		if ((circulos.size() % 2) == 0) {
-			return "É bipartido";
-		} else {
-			return "Não é bipartido";
-		}
-		
-	}
-
 	private static Graph<String, DefaultEdge> teste1() {
 		Graph<String, DefaultEdge> graph = new SimpleGraph<String, DefaultEdge>(DefaultEdge.class);
 
@@ -78,5 +54,29 @@ public class EhBipartido {
 
 		return graph;
 	}
+	
+	private static String analisaSeEhBipartido(Graph<String, DefaultEdge> grafo) {
+		PatonCycleBase<String, DefaultEdge> base = new PatonCycleBase<String, DefaultEdge>(grafo);
+		List<List<String>> circulos = base.findCycleBase();
 
+		if ((circulos.size() % 2) == 0) {
+			return "É bipartido";
+		} else {
+			return "Não é bipartido";
+		}
+		
+	}
+
+	private static void Respostas(Graph<String, DefaultEdge> grafo1, Graph<String, DefaultEdge> grafo2) {
+		System.out.println("Questão 3. Analisa se é bipartido:" + System.lineSeparator());
+		System.out.println("Grafo 1 - " + analisaSeEhBipartido(grafo1));
+		System.out.println("Grafo 2 - " + analisaSeEhBipartido(grafo2));
+	}
+	
+	public static void main(String[] args)  {
+		Graph<String, DefaultEdge> grafo1 = teste1();
+		Graph<String, DefaultEdge> grafo2 = teste2();
+		Respostas(grafo1, grafo2);
+	}
+	
 }
