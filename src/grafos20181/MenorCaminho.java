@@ -7,11 +7,6 @@ import org.jgrapht.graph.SimpleWeightedGraph;
 
 public class MenorCaminho {
 
-	private static GraphPath<String, DefaultWeightedEdge> buscaMenorCaminho(SimpleWeightedGraph<String, DefaultWeightedEdge> grafo) {		
-		DijkstraShortestPath<String, DefaultWeightedEdge> caminho = new DijkstraShortestPath<String, DefaultWeightedEdge>(grafo);
-		return caminho.getPath("a", "d");
-	}
-
 	private static SimpleWeightedGraph<String, DefaultWeightedEdge> criaGrafo() {
 		SimpleWeightedGraph<String, DefaultWeightedEdge> graph = new SimpleWeightedGraph<String, DefaultWeightedEdge>(DefaultWeightedEdge.class);
 
@@ -42,6 +37,11 @@ public class MenorCaminho {
 		graph.setEdgeWeight(graph.addEdge("i", "e"), 2);
 
 		return graph;
+	}
+
+	private static GraphPath<String, DefaultWeightedEdge> buscaMenorCaminho(SimpleWeightedGraph<String, DefaultWeightedEdge> grafo) {
+		DijkstraShortestPath<String, DefaultWeightedEdge> caminho = new DijkstraShortestPath<String, DefaultWeightedEdge>(grafo);
+		return caminho.getPath("a", "d");
 	}
 
 	private static void Resposta(GraphPath<String, DefaultWeightedEdge> caminho) {
